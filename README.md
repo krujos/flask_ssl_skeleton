@@ -15,13 +15,16 @@ Keys / crts are assumed to be on my laptop, you should change that.
    
 Getting Started
 ===================
-Install the requirements 
+Setup a new 2.7 virtualenv, or your favorite way to do that sort of thing.
+Install the requirements:
     
 		pip install -f requirements.txt
 
-Change (or remove) <code>init_users</code> to load your users
+There's tests in tests/flask_ssl_skeleton_test.py, run them & study them to get a feel for how to test. 
+Run the app and navigate to the URL.
+Rename flask_ssl_skeleton.py to something more better for you.  
+Change (or remove) <code>init_users</code> to load your users.
 
 Follow the pattern set forth in <code>admin()</code> to have users be logged in. It is importent that <code>@login_required</code> is the decorator closest to the function (bottom most). Otherwise it won't work and anyone can hit the endpoint. 
-
 
 Replace the way we find users in <code>index()</code> to be how you find a user in order to authenticate them.
