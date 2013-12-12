@@ -18,7 +18,7 @@ Getting Started
 Setup a new 2.7 virtualenv, or your favorite way to do that sort of thing.
 Install the requirements:
     
-		pip install -f requirements.txt
+		pip install -r requirements.txt
 
 Setup ssl keys, this is a good explination (method 2):
 
