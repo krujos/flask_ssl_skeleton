@@ -19,6 +19,7 @@ class SkeletonTestCase(unittest.TestCase):
         self.assertTrue(rv.headers['Location'].endswith('/'))
 
     def test_root_redirects_when_logged_in(self):
-        rv = self.client.post('/', data=dict(username='admin', password='password'))
-        self.assertEquals(302, rv.status_code)
-        self.assertTrue(rv.headers['Location'].endswith('/admin'))
+        with self.app.test_request_context():
+            rv = self.client.post('/', data=dict(username='admin', password='password'))
+            self.assertEquals(302, rv.status_code)
+            self.assertTrue(rv.headers['Location'].endswith('/admin'))

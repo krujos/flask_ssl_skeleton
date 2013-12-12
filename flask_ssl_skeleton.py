@@ -14,9 +14,9 @@ from flaskext.auth.models.sa import get_user_class
 app = Flask(__name__)
 app.logger.setLevel(logging.DEBUG)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.secret_key = 'The debug secret.'
 db = SQLAlchemy(app)
 auth = Auth(app, login_url_name='index')
-
 User = get_user_class(db.Model)
 
 
@@ -82,6 +82,7 @@ def mk_form(button_text):
             </form>
         ''' % button_text
 
+
 def logout_view():
     user_data = logout()
     if user_data is None:
@@ -89,7 +90,14 @@ def logout_view():
     return 'Logged out user {0}.'.format(user_data['username'])
 
 if __name__ == '__main__':
-    app.secret_key = 'The debug secret.'
+
+    try:
+        open('/tmp/flask_auth_test.db')
+    except IOError:
+        db.create_all()
+        app.logger.info("Created db")
+        #db.session.add(User(username='admin', password='password'))
+        #db.session.commit()
     app.run('0.0.0.0', debug=True,
             ssl_context=('/Users/jkruck/git/flask_ssl_skeleton/keys/server.crt',
                          '/Users/jkruck/git/flask_ssl_skeleton/keys/server.key'))
