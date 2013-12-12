@@ -36,3 +36,5 @@ Replace the way we find users in <code>index()</code> to be how you find a user 
 Windows Notes
 ===================
 Install open ssl from http://slproweb.com/products/Win32OpenSSL.html. Install the full version, not the lite version, make sure it's in your path. This appears to be a pain in the butt. Documentation on how to install pyOpenSSL may be of some assistance. Make sure you also install the VS 8 redistributables. 
+
+If open ssl complains about not finding a config file at /usr/local/ssl/openssl.cnf copy set OPENSSL_CONFG=C:\OpenSSL-Win64\bin\openssl.cfg
