@@ -22,7 +22,7 @@ Install the requirements:
 
 Setup ssl keys, this is a good explination (method 2):
 
-	http://kracekumar.com/post/54437887454/ssl-for-flask-local-development
+http://kracekumar.com/post/54437887454/ssl-for-flask-local-development
 
 There's tests in tests/flask_ssl_skeleton_test.py, run them & study them to get a feel for how to test. 
 Run the app and navigate to the URL.
