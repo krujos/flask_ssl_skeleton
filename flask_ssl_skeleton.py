@@ -21,7 +21,7 @@ def init_users():
 @app.get('/admin')
 @login_required()
 def admin():
-    return "Hello Admin " + str(session.get(SESSION_USER_KEY, None)) + "UN = " +  session.get(SESSION_USER_KEY, None)['username']
+    return "Hello " + session.get(SESSION_USER_KEY, None)['username']
 
 @app.get('/')
 def index():
@@ -40,13 +40,13 @@ def index():
 
 @app.post('/')
 def do_login():
-    if request.method == 'POST':
-        username = request.form['username']
-        if username in g.users:
-            # Authenticate and log in!
-            if g.users[username].authenticate(request.form['password']):
-                return redirect('/admin')
-        return 'Failure :('
+    username = request.form['username']
+    if username in g.users:
+        # Authenticate and log in!
+        if g.users[username].authenticate(request.form['password']):
+            return redirect('/admin')
+    return 'Failure :('
+
 
 if __name__ == '__main__':
     app.secret_key = 'The debug secret.'
