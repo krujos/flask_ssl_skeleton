@@ -3,7 +3,6 @@ from flask.ext.auth.auth import SESSION_USER_KEY
 from flaskext.auth import Auth, AuthUser, login_required
 import logging
 
-
 Flask.get = lambda self, path: self.route(path, methods=['get'])
 Flask.put = lambda self, path: self.route(path, methods=['put'])
 Flask.post = lambda self, path: self.route(path, methods=['post'])
