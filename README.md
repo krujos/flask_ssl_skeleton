@@ -4,9 +4,7 @@ flask_ssl_skeleton
 Skeleton project for flask + ssl + user login. This is a combination of examples from the interwebs for setting up SSL for flask and using Flask-Auth. 
 
 Uses Flask & Flask-Auth to do the dirty work
-User storage is up to you, this just stores them in memory in the app
-
-	TODO Put it in sqlalchemy user class or something. 
+User storage is up to you, this stores them in SQLite via SQLAlchemy. Flask-Auth gives us a handy users class that has the ORM done for us. 
 
 Keys / crts are assumed to be on my laptop, you should change that.
    
