@@ -20,29 +20,27 @@ auth = Auth(app, login_url_name='index')
 User = get_user_class(db.Model)
 
 
-@app.get('/admin')
 @login_required()
+@app.get('/admin')
 def admin():
-    username = session.get(SESSION_USER_KEY, None)['username']
+    user_key = session.get(SESSION_USER_KEY)
+    if not user_key:
+        return redirect()
+    username = session.get(SESSION_USER_KEY)['username']
     app.logger.debug(username + " accessed /admin")
     return "Hello " + username
 
+@app.get('/index')
 @app.get('/')
 def index():
-    user_key = session.get(SESSION_USER_KEY, None)
+    user_key = session.get(SESSION_USER_KEY)
     if user_key:
         username = user_key['username']
         app.logger.debug(username + " hit the root")
-        return redirect('admin')
+        return redirect(url_for('admin'))
 
     app.logger.debug('giving back login form')
-    return '''
-            <form method="POST">
-                Username: <input type="text" name="username"/><br/>
-                Password: <input type="password" name="password"/><br/>
-                <input type="submit" value="Log in"/>
-            </form>
-        '''
+    return mk_form("Log In")
 
 @app.post('/')
 def do_login():
@@ -72,14 +70,17 @@ def do_create_user():
 
 @app.get('/users/create')
 def create_user():
+    return mk_form("Create")
+
+
+def mk_form(button_text):
     return '''
             <form method="POST">
                 Username: <input type="text" name="username"/><br/>
                 Password: <input type="password" name="password"/><br/>
-                <input type="submit" value="Create"/>
+                <input type="submit" value="%s"/>
             </form>
-        '''
-
+        ''' % button_text
 
 def logout_view():
     user_data = logout()
