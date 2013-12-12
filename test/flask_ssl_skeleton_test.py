@@ -13,9 +13,11 @@ class SkeletonTestCase(unittest.TestCase):
         rv = self.client.get('/')
         self.assertTrue('<form method="POST">' in rv.data)
 
-    def test_admin_returns_unauthorized_when_not_logged_in(self):
+    def test_admin_redirects_to_login_when_not_logged_in(self):
         rv = self.client.get('/admin')
-        self.assertEqual(401, rv.status_code)
+        self.assertEqual(302, rv.status_code)
+        self.assertTrue(rv.headers['Location'].endswith('/'))
+
 
     def test_root_redirects_when_logged_in(self):
         rv = self.client.post('/', data=dict(username='admin', password='password'))

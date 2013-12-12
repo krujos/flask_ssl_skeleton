@@ -25,7 +25,7 @@ User = get_user_class(db.Model)
 def admin():
     user_key = session.get(SESSION_USER_KEY)
     if not user_key:
-        return redirect()
+        return redirect(url_for('index'))
     username = session.get(SESSION_USER_KEY)['username']
     app.logger.debug(username + " accessed /admin")
     return "Hello " + username
