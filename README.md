@@ -41,3 +41,5 @@ Install open ssl from http://slproweb.com/products/Win32OpenSSL.html. Install th
 If open ssl complains about not finding a config file at /usr/local/ssl/openssl.cnf
     
     set OPENSSL_CONFG=C:\OpenSSL-Win64\bin\openssl.cfg
+
+Beweare of file associations in windows. If you don't type python /your/script you'll use the file associations, which will NOT point to the python in your virtualenv. This will cause all maner of headache and confusion. 
