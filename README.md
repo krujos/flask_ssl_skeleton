@@ -18,7 +18,7 @@ Getting Started
 Setup a new 2.7 virtualenv, or your favorite way to do that sort of thing.
 Install the requirements:
     
-		pip install -r requirements.txt
+    pip install -r requirements.txt
 
 Setup ssl keys, this is a good explination (method 2):
 
@@ -37,4 +37,6 @@ Windows Notes
 ===================
 Install open ssl from http://slproweb.com/products/Win32OpenSSL.html. Install the full version, not the lite version, make sure it's in your path. This appears to be a pain in the butt. Documentation on how to install pyOpenSSL may be of some assistance. Make sure you also install the VS 8 redistributables. 
 
-If open ssl complains about not finding a config file at /usr/local/ssl/openssl.cnf copy set OPENSSL_CONFG=C:\OpenSSL-Win64\bin\openssl.cfg
+If open ssl complains about not finding a config file at /usr/local/ssl/openssl.cnf
+    
+    set OPENSSL_CONFG=C:\OpenSSL-Win64\bin\openssl.cfg
