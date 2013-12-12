@@ -20,6 +20,9 @@ Install the requirements:
     
 		pip install -f requirements.txt
 
+Setup ssl keys, this is a good explination:
+	http://kracekumar.com/post/54437887454/ssl-for-flask-local-development
+
 There's tests in tests/flask_ssl_skeleton_test.py, run them & study them to get a feel for how to test. 
 Run the app and navigate to the URL.
 Rename flask_ssl_skeleton.py to something more better for you.  
