@@ -35,4 +35,4 @@ Replace the way we find users in <code>index()</code> to be how you find a user 
 
 Windows Notes
 ===================
-Install open ssl from http://slproweb.com/products/Win32OpenSSL.html. Install the full version, not the lite version. This appears to be a pain in the butt. 
+Install open ssl from http://slproweb.com/products/Win32OpenSSL.html. Install the full version, not the lite version, make sure it's in your path. This appears to be a pain in the butt. Documentation on how to install pyOpenSSL may be of some assistance. 
