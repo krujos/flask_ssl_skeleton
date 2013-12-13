@@ -46,4 +46,9 @@ If open ssl complains about not finding a config file at /usr/local/ssl/openssl.
     
     set OPENSSL_CONFG=C:\OpenSSL-Win64\bin\openssl.cfg
 
-Beweare of file associations in windows. If you don't type python /your/script you'll use the file associations, which will NOT point to the python in your virtualenv. This will cause all maner of headache and confusion. 
+Beware of file associations in windows. If you don't type python /your/script you'll use the file associations, which will NOT point to the python in your virtualenv. This will cause all maner of headache and confusion.
+
+Other Notes
+=================
+PyCharm complains about flaskext not being found (in import statements). This does not seem to effect execution, but it
+drives me crazy. I've run <code>touch site-packages/python2.7/flaskext/__init__.py</code> to silence this squiggly line.
