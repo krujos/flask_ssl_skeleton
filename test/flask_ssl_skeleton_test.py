@@ -25,7 +25,7 @@ class SkeletonTestCase(unittest.TestCase):
     #this isn't a great test...
     @patch('flask_ssl_skeleton.User', autospec=True)
     def test_root_redirects_when_logged_in(self, f):
-    with self.app.test_request_context():
-            rv = self.client.post('/', data=dict(username=self.testuser, password=self.testpass))
-            self.assertEquals(302, rv.status_code)
-            self.assertTrue(rv.headers['Location'].endswith('/admin'))
+        with self.app.test_request_context():
+                rv = self.client.post('/', data=dict(username=self.testuser, password=self.testpass))
+                self.assertEquals(302, rv.status_code)
+                self.assertTrue(rv.headers['Location'].endswith('/admin'))
