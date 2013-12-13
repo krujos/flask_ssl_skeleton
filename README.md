@@ -20,6 +20,7 @@ The logic around redirecting logged in users is not solid and not worthy of a re
 Getting Started
 ===================
 Setup a new 2.7 virtualenv
+
 Install the requirements:
     
     pip install -r requirements.txt
