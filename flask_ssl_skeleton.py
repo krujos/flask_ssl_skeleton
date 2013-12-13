@@ -30,6 +30,9 @@ def admin():
     app.logger.debug(username + " accessed /admin")
     return "Hello " + username
 
+#TODO There is a not so small bug here. It's not safe to just check the users token as the users
+# browser may still have one even if the user has been deleted from the database. Do something
+# more better in a real implementation.
 @app.get('/index')
 @app.get('/')
 def index():
@@ -40,6 +43,7 @@ def index():
         return redirect(url_for('admin'))
     app.logger.debug('giving back login form')
     return mk_form("Log In")
+
 
 @app.post('/')
 def do_login():
@@ -67,6 +71,7 @@ def do_create_user():
     db.session.commit()
     return redirect(url_for('index'))
 
+
 @app.get('/users/create')
 def create_user():
     return mk_form("Create")
@@ -87,6 +92,7 @@ def logout_view():
     if user_data is None:
         return 'No user to log out.'
     return 'Logged out user {0}.'.format(user_data['username'])
+
 
 if __name__ == '__main__':
     try:

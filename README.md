@@ -5,15 +5,23 @@ Skeleton project for flask + ssl + user login. This is a combination of examples
 
 Users
 ===============
-This skeleton uses SQLite, Flask & Flask-Auth to do the dirty work of user login, password hashing, salting etc.
+This skeleton uses SQLite, Flask & Flask-Auth to do the dirty work of user login, password hashing,
+salting etc.
 
-User storage is up to you long term, this stores them in SQLite via SQLAlchemy. Flask-Auth gives us a handy users class that has the ORM done for us. 
+User storage is up to you long term, this stores them in SQLite via SQLAlchemy. Flask-Auth gives us a
+handy users class that has the ORM done for us.
 
 Keys / crts are assumed to be on my laptop, you should change that.
    
     ...
     ssl_context=('/your/path_to.crt', '/your/path_to.key')
-   
+
+The logic around redirecting logged in users is not solid and not worthy of a real app. That's not the
+intention here as this is a stating point. The source calls out things that aren't a great idea.
+Specifically, just because you're still logged in does not mean you're still a valid user. (i.e. your
+session token has not expired but someone booted you from the user db). Further evidence not to trust all the code
+you find on the internets.
+
 Getting Started
 ===================
 Setup a new 2.7 virtualenv, or your favorite way to do that sort of thing.
