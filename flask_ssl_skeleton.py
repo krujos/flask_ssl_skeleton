@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, session, url_for
 from flask.ext.auth.auth import SESSION_USER_KEY, logout
 from flaskext.auth import Auth, login_required
+from flaskext.auth.models.sa import get_user_class
 from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from sqlalchemy.orm.exc import NoResultFound
@@ -9,7 +10,6 @@ Flask.get = lambda self, path: self.route(path, methods=['get'])
 Flask.put = lambda self, path: self.route(path, methods=['put'])
 Flask.post = lambda self, path: self.route(path, methods=['post'])
 Flask.delete = lambda self, path: self.route(path, methods=['delete'])
-from flaskext.auth.models.sa import get_user_class
 
 app = Flask(__name__)
 app.logger.setLevel(logging.DEBUG)
