@@ -38,7 +38,6 @@ def index():
         username = user_key['username']
         app.logger.debug(username + " hit the root")
         return redirect(url_for('admin'))
-
     app.logger.debug('giving back login form')
     return mk_form("Log In")
 
@@ -90,14 +89,11 @@ def logout_view():
     return 'Logged out user {0}.'.format(user_data['username'])
 
 if __name__ == '__main__':
-
     try:
         open('/tmp/flask_auth_test.db')
     except IOError:
         db.create_all()
         app.logger.info("Created db")
-        #db.session.add(User(username='admin', password='password'))
-        #db.session.commit()
     app.run('0.0.0.0', debug=True,
             ssl_context=('/Users/jkruck/git/flask_ssl_skeleton/keys/server.crt',
                          '/Users/jkruck/git/flask_ssl_skeleton/keys/server.key'))

@@ -2,3 +2,4 @@ Flask
 Flask-Auth
 pyOpenSSL
 Flask-SQLAlchemy
+mock
