@@ -5,12 +5,11 @@ Skeleton project for flask + ssl + user login. This is a combination of examples
 
 Users
 ===============
-This skeleton uses SQLite, Flask & Flask-Auth to do the dirty work of user login, password hashing,
-salting etc.
+This skeleton uses SQLite, Flask & Flask-Auth to do the dirty work of user login, password hashing, salting etc.
 
-User storage is up to you long term, this stores them in SQLite via SQLAlchemy. That's proabably not a good long term solution (at least not in my neck of the woods). Flask-Auth gives us a handy users class that has the ORM done for us, so hook it up to a real db if that works for you. 
+User storage is up to you, this stores them in SQLite via SQLAlchemy. That's proabably not a good long term solution (at least not in my neck of the woods). Flask-Auth gives us a handy users class that has the ORM done for us, so hook it up to a real db if that works for you. 
 
-Keys / crts are assumed to be on my laptop, you should change that. Signed, self signed, that's all up to you. The Flask code that matters the ssl_context bit in app.run(). It's down at the bottom of the file. This just sets up ssl for the development server, you still need to wire in your real webserver longterm. This just gets you going and pleases the "you didn't do ssl, you didn't do the hardwork" jokers.  
+Keys / crts are assumed to be on my laptop, you should change that. Signed, self signed, that's all up to you. The Flask code that matters the ssl_context bit in app.run(). It's down at the bottom of the file. This just sets up ssl for the development server, you still need to wire in your real web server longterm. This just gets you going and pleases the "you didn't do ssl, you didn't do the hard work" jokers.  
    
     ...
     ssl_context=('/your/path_to.crt', '/your/path_to.key')
